@@ -1,0 +1,334 @@
+﻿# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: siihpheng
+  name: "單手中古四拼"
+  version: "2020.02.17"
+  author:
+    - "polyhedron <biopolyhedron@gmail.com>"
+    - "Lely <fourseasons4ji@gmail.com>"
+    - "Over-There-Is <1918301767@qq.com>"
+  description: |
+    "採用《廣韻》音系的中古漢語四拼"
+    "基於polyhedron中古漢語拼音和詞庫"
+    "可單手輸入"
+    "碼表詳見主頁"
+    "原項目主頁https://github.com/rime/rime-middle-chinese"
+    "四拼項目主頁https://github.com/Over-There-Is/rime-siihpheng"
+  dependencies:
+    - zyenpheng
+
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 英文 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+  - name: simplification
+    states: [ 傳統, 简体 ]
+  - name: extended_charset
+    reset: 1
+    states: [ 常用, 增廣 ]
+  - name: ascii_punct
+    states: [ 。，, ．， ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - matcher
+    - ascii_segmentor
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - script_translator
+  filters:
+    - simplifier
+    - uniquifier
+
+speller:
+  alphabet: 0123456789
+  delimiter: " ."
+  algebra:
+    - derive/^cj'ap$/8617/
+    - derive/^d'ruen$/8266/
+    - derive/^chj'ai$/9615/
+    - derive/^chj'aix$/9615/
+    - derive/^chj'ren$/9846/
+    - derive/^zj'e$/8442/
+    - derive/^zj'op$/8427/
+    - derive/^nj'aix$/9415/
+    - derive/^nj'e$/9442/
+    - derive/^nj'rat$/9214/
+    - derive/^sj'amx$/4619/
+    - derive/^thr'et$/9644/
+    - derive/^thr'eh$/9642/
+    - derive/^tr'uaix$/8695/
+    - derive/^t'rangx$/8813/
+    - derive/^ch'ruad$/6890/
+    - derive/^j'aix$/6415/
+    - derive/^i'uaix$/6495/
+    - derive/^z'ren$/5246/
+    - derive/^zr'uen$/5466/
+    - derive/^zr'ux$/5452/
+    - xform/^cj'ap$/8917/
+    - xform/^d'ruen$/8466/
+    - xform/^chj'ai$/9915/
+    - xform/^chj'aix$/9915/
+    - xform/^chj'ren$/9946/
+    - xform/^zj'e$/8142/
+    - xform/^zj'op$/8127/
+    - xform/^nj'aix$/9115/
+    - xform/^nj'e$/9142/
+    - xform/^nj'rat$/9114/
+    - xform/^sj'amx$/4519/
+    - xform/^thr'et$/9844/
+    - xform/^thr'eh$/9842/
+    - xform/^tr'uaix$/8895/
+    - xform/^t'rangx$/8613/
+    - xform/^ch'ruad$/6692/
+    - xform/^j'aix$/6115/
+    - xform/^i'uaix$/6795/
+    - xform/^z'ren$/5446/
+    - xform/^zr'uen$/5266/
+    - xform/^zr'ux$/5252/
+    - xform/[hx]$//
+    - derive/^tia$/8612/
+    - derive/^ty$/8632/
+    - derive/^dii$/8475/
+    - derive/^zsri$/4272/
+    - xform/j([aeou])/ji$1/
+    - xform/uung/um/
+    - xform/yung/ium/
+    - xform/uuk/up/
+    - xform/yuk/iup/
+    - xform/([bpm]h?r?)u([aeo])/$1$2/
+    - xform/([bpm]h?j?)y/$1i/
+    - xform/^ph/7W/
+    - xform/^m/7HW/
+    - xform/^p/7/
+    - xform/^b/7H/
+    - xform/^kh/3/
+    - xform/^ng/3H/
+    - xform/^chj/9j/
+    - xform/^th/9/
+    - xform/^n/9H/
+    - xform/^cj/8j/
+    - xform/^t/8/
+    - xform/^zj/8Hj/
+    - xform/^d/8H/
+    - xform/^sj/45/
+    - xform/^s/4/
+    - xform/^zsj/4Hr/
+    - xform/^zs/4H/
+    - xform/^ch/6/
+    - xform/^l([iy])/65$1/
+    - xform/^l/6H/
+    - xform/^([ijy])/6H$1/
+    - xform/^c/5/
+    - xform/^z/5H/
+    - xform/^k/2/
+    - xform/^gh?/2H/
+    - xform/^q/1/
+    - xform/^h/1H/
+    - xform/iy/y/
+    - xform/iu$/iu2/
+    - xform/ng$/3/
+    - xform/n$/6/
+    - xform/m$/9/
+    - xform/k$/1/
+    - xform/t$/4/
+    - xform/p$/7/
+    - xform/d$/0/
+    - xform/([aei])u$/$1⁸/
+    - xform/([aioy])i$/$1⁵/
+    - xform/([a-z])$/$1²/
+    - xform/^([4589])H([iy])/$1¹$2/
+    - xform/^([1-9])H(W?)j/$1¹$2/
+    - xform/^([1-9])H(W?)r?([iy])/$1⁷$2$3/
+    - xform/^([1-9])H(W?)r/$1²$2/
+    - xform/^([1-9])H(W?)/$1⁴$2/
+    - xform/^([45689])([iy])/$1⁹$2/
+    - xform/^([1-9])(W?)j/$1⁹$2/
+    - xform/^([1-9])(W?)r?([iy])/$1³$2$3/
+    - xform/^([1-9])(W?)r/$1⁸$2/
+    - xform/^([1-9])(W?[a-z])/$1⁶$2/
+    - xlit/⁰¹²³⁴⁵⁶⁷⁸⁹/0123456789/
+    - xform/[uyW]i?a/9/
+    - xform/[uyW]i?e/6/
+    - xform/[uyW]i?o/8/
+    - xform/Wi?u/0/
+    - xform/(y|Wi)/3/
+    - xform/i?a/1/
+    - xform/i?e/4/
+    - xform/i?o/2/
+    - xform/i?u/5/
+    - xform/i/7/
+    - xform/[a-zA-Z]//
+
+menu:
+  page_size: 5  # 候選詞數
+
+translator:
+  dictionary: zyenpheng
+  prism: siihpheng
+  spelling_hints: 7  # 標註拼音的字數，建議橫排顯示時設置爲1
+  preedit_format:
+    - xform/(\w\w\w)0/$1d/
+    - xform/(\w\w\w)1/$1k/
+    - xform/(\w\w\w)2/$1Q/
+    - xform/(\w\w\w)3/$1ng/
+    - xform/(\w\w\w)4/$1t/
+    - xform/(\w\w\w)5/$1i/
+    - xform/(\w\w\w)6/$1n/
+    - xform/(\w\w\w)7/$1p/
+    - xform/(\w\w\w)8/$1u/
+    - xform/(\w\w\w)9/$1m/
+    - xform/7(\w)0/f$1u/
+    - xform/7([28])1/p$1a/
+    - xform/7([37])1/p$1ya/
+    - xform/7([19])1/p$1a/
+    - xform/7(\w)1(ng|k)/p$1a$2/
+    - xform/7(\w)1([int])/p$1ua$2/
+    - xform/7(\w)1/p$1a/
+    - xform/(\w\w)1/$1a/
+    - xform/7([1379])2/p$1yo/
+    - xform/7(\w)2ng/p$1ong/
+    - xform/7(\w)2(n|t)/p$1uo$2/
+    - xform/7(\w)2/p$1o/
+    - xform/(\w\w)2/$1o/
+    - xform/7(\w)3Q/f$1y/
+    - xform/7(\w)3/f$1i/
+    - xform/(\w\w)3/$1y/
+    - xform/7(\w)4/p$1e/
+    - xform/(\w\w)4/$1e/
+    - xform/7(\w)5/p$1u/
+    - xform/(\w\w)5/$1u/
+    - xform/7(\w)6/f$1e/
+    - xform/(\w[13579j])6/$1ye/
+    - xform/(\w\w)6/$1ue/
+    - xform/7(\w)7Q/p$1y/
+    - xform/7(\w)7/p$1i/
+    - xform/(\w\w)7/$1i/
+    - xform/7([1379])8/f$1yo/
+    - xform/7(\w)8ng/f$1ong/
+    - xform/7(\w)8(n|t)/f$1uo$2/
+    - xform/7(\w)8/f$1o/
+    - xform/(\w[13579j])8/$1yo/
+    - xform/(\w\w)8/$1uo/
+    - xform/7([28])9/f$1a/
+    - xform/7([37])9/f$1ya/
+    - xform/7(\w)9(ng|k)/f$1a$2/
+    - xform/7(\w)9([int])/f$1ua$2/
+    - xform/7(\w)9/f$1a/
+    - xform/(\w[13579j])9/$1ya/
+    - xform/(\w\w)9/$1ua/
+    - xform/(\w)1/$1HJ/
+    - xform/(\w)2/$1Hr/
+    - xform/(\w)3/$1I/
+    - xform/(\w)4/$1H/
+    - xform/(\w)6/$1/
+    - xform/(\w)7/$1HI/
+    - xform/(\w)8/$1r/
+    - xform/(\w)9/$1J/
+    - xform/45/sj/
+    - xform/65I?/li/
+    - xform/1H/h/
+    - xform/1/q/
+    - xform/2H/gh/
+    - xform/gh([IJ])/g$1/
+    - xform/2/k/
+    - xform/3H/ng/
+    - xform/3/kh/
+    - xform/4HIQ/zsri/
+    - xform/4HI/zsj/
+    - xform/4HJi?/zsi/
+    - xform/4H/zs/
+    - xform/4Ii?/sri/
+    - xform/4Ji?/si/
+    - xform/4/s/
+    - xform/5HIi?/zri/
+    - xform/5HJi?/zi/
+    - xform/5H/z/
+    - xform/5Ii?/cri/
+    - xform/5Ji?/ci/
+    - xform/5/c/
+    - xform/6HJ/j/
+    - xform/6HIi?/i/
+    - xform/6H/l/
+    - xform/6Ii?/chri/
+    - xform/6Ji?/chi/
+    - xform/6/ch/
+    - xform/7/p/
+    - xform/fH/m/
+    - xform/f/ph/
+    - xform/pH/b/
+    - xform/8HJ/zj/
+    - xform/8HIi?/dri/
+    - xform/8H/d/
+    - xform/8JyQ/ty/
+    - xform/8J/cj/
+    - xform/8Ii?/tri/
+    - xform/8/t/
+    - xform/9HIi?/nri/
+    - xform/9H/n/
+    - xform/9J/chj/
+    - xform/9Ii?/thri/
+    - xform/9/th/
+    - xform/Ii/i/
+    - xform/[Ii]y/y/
+    - xlit/IJ/ij/
+    - xform/Q//
+    - xform/ium/yung/
+    - xform/jum/jyung/
+    - xform/um/uung/
+    - xform/iup/yuk/
+    - xform/jup/jyuk/
+    - xform/up/uuk/
+
+punctuator:
+  import_preset: default
+  half_shape:
+    ' ' : { commit: ' ' }
+
+key_binder:
+  import_preset: default
+  bindings:
+   - {accept: KP_0, send: 0, when: always}
+   - {accept: KP_1, send: 1, when: always}
+   - {accept: KP_2, send: 2, when: always}
+   - {accept: KP_3, send: 3, when: always}
+   - {accept: KP_4, send: 4, when: always}
+   - {accept: KP_5, send: 5, when: always}
+   - {accept: KP_6, send: 6, when: always}
+   - {accept: KP_7, send: 7, when: always}
+   - {accept: KP_8, send: 8, when: always}
+   - {accept: KP_9, send: 9, when: always}
+   - {accept: KP_Decimal, send: period, when: always}
+   - {accept: KP_Add, send: Down, when: has_menu}
+   - {accept: KP_Subtract, send: Up, when: has_menu}
+   - {accept: KP_Multiply, send: BackSpace, when: composing}
+   - {accept: KP_Divide, send: Page_Down, when: has_menu}
+   - {accept: KP_Add, send: space, when: always}
+   - {accept: KP_Subtract, send: comma, when: always}
+   - {accept: KP_Multiply, send: question, when: always}
+   - {accept: KP_Divide, send: backslash, when: always}
+
+editor:
+  bindings:
+    Return: confirm
+    KP_Delete: delete_candidate
+
+recognizer:
+  import_preset: default
