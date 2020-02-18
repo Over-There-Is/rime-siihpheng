@@ -4,7 +4,7 @@
 
 基于polyhedron中古汉语拼音和词库的单手四拼输入方案
 
-原项目地址https://github.com/rime/rime-middle-chinese
+原项目主页 https://github.com/rime/rime-middle-chinese
 
 ## 编码方案
 
@@ -21,24 +21,24 @@
   </tr>
   <tr align="center">
     <td>b m-p ph<br />并明-帮滂</td>
-    <td>d dr zj-t tr cj<br />定澄常-端知章</td>
-    <td>n nr nj-th thr chj<br />泥娘日-透彻昌</td>
+    <td>d zj-t cj<br />定澄常-端知章</td>
+    <td>n-th chj<br />泥娘日-透彻昌</td>
   </tr>
   <tr align="center">
     <td>4</td> <td>5</td> <td>6</td>
   </tr>
   <tr align="center">
-    <td>zs zsr zsj-s sr sj<br />邪俟船-心生书</td>
-    <td>z zr-c cr<br />从崇-精庄</td>
-    <td>l 0 j-ch<br />来云以-清初</td>
+    <td>zs-s<br />邪俟船-心生书</td>
+    <td>z-c<br />从崇-精庄</td>
+    <td>l 0-ch<br />来云以-清初</td>
   </tr>
     <tr align="center">
     <td>1</td> <td>2</td> <td>3</td>
   </tr>
   <tr align="center">
     <td>h-q<br />晓-影</td>
-    <td>g gh-k<br />群匣-见</td>
-    <td>n-th chj<br />泥娘日-透彻昌</td>
+    <td>g-k<br />群匣-见</td>
+    <td>ng-kh<br />疑-溪</td>
   </tr>
   <tr align="center">
     <td colspan="2">0</td>
@@ -187,3 +187,11 @@
 输入状态下.键分隔，+键下一候选，-键上一候选，/键向下翻页，* 键退格，回车上屏
 
 因技术原因暂不支持已上屏文字的退格，可通过NumLock进入光标模式进行修改
+
+## 安装
+
+本方案依赖于
+
+  - [中古漢語拼音](https://github.com/rime/rime-middle-chinese) ℞ **`middle-chinese`**
+
+[东风破](https://github.com/rime/plum)安装口令：`bash rime-install Over-There-Is/rime-siihpheng`
